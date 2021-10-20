@@ -1,0 +1,119 @@
+@10="Revised and Fixed Dispel Magic Effect"
+@13="Throne of Bhaal is required"
+@20="Holy Avenger and arrows of dispelling as per PnP"
+@21="This option requires the main component"
+@30="Dispel Magic (Abjuration) 
+Level: 3
+Sphere: Protection 
+Range: Visual range of caster
+Duration: Special 
+Casting Time: 6 
+Area of Effect: 15-foot radius
+Saving Throw: Special
+
+When a priest casts this spell, it has a chance to negate magic it comes in contact with, as follows: First, it removes spells and spell-like effects (including those from magical device and innate abilities) up to the 6th circle on creatures or objects. Second, it neutralizes magical potions. Third, it can render golems inactive for one round if they fail a saving throw versus spell.
+
+Each effect or potion in the spell's area is checked to determine if it is dispelled. The chance to dispel depends on the difference in level between the intended recipient and the caster. The base chance is 50%, if the caster is of higher level than the individual under a dispellable effect, the chance increases by 3% per level above to maximum of 95%; conversely if the caster is of lower level, the chance is reduced by 3% per level below to a minimum of 5%. If the target has levels in more than one character class, the highest is checked."
+@31="Remove Magic (Abjuration) 
+Level: 3
+Range: Visual range of caster
+Duration: Special
+Casting Time: 3 
+Area of Effect: 15-foot radius
+Saving Throw: Special
+
+This is the combat version of dispel magic; it will only affect opponents. When a wizard casts this spell, it has a chance to negate magic it comes in contact with, as follows: First, it removes spells and spell-like effects (including those from magical device and innate abilities) up to the 6th circle on enemies in the area. Second, it neutralizes magical potions. Third, it can render attacking golems inactive for one round if they fail a saving throw versus spell.
+
+Each effect or potion in the spell's area is checked to determine if it is dispelled. The chance to dispel depends on the difference in level between the hostile creature and the caster. The base chance is 50%, if the caster is of higher level than an enemy under a dispellable effect, the chance increases by 3% per level above to maximum of 95%; conversely if the caster is of lower level, the chance is reduced by 3% per level below to a minimum of 5%. If the target has levels in more than one character class, the highest is checked."
+@32="Dispel Magic (Abjuration) 
+Level: 3
+Range: Visual range of caster
+Duration: Special 
+Casting Time: 3
+Area of Effect: 15-foot radius
+Saving Throw: Special
+
+When a wizard casts this spell, it has a chance to negate magic it comes in contact with, as follows: First, it removes spells and spell-like effects (including those from magical device and innate abilities) up to the 6th circle on creatures or objects. Second, it neutralizes magical potions. Third, it can render golems inactive for one round if they fail a saving throw versus spell.
+
+Each effect or potion in the spell's area is checked to determine if it is dispelled. The chance to dispel depends on the difference in level between the intended recipient and the caster. The base chance is 50%, if the caster is of higher level than the individual under a dispellable effect, the chance increases by 3% per level above to maximum of 95%; conversely if the caster is of lower level, the chance is reduced by 3% per level below to a minimum of 5%. If the target has levels in more than one character class, the highest is checked."
+@33="The Arrow of Dispelling will remove magical effects upon a victim struck by it.
+
+STATISTICS:
+
+Combat Ability: Dispels Magic, as per the spell, at 15th level
+Damage:  1D6
+Damage type:  missile (piercing)
+Weight: 0
+Launcher:  Bow
+Not usable by:
+ Cleric
+ Druid
+ Mage"
+@34="The Holy Avenger: Carsomyr
+
+Carsomyr was forged in the distant past. As one of the Great Legendary Swords of Faerun it leads young paladins on the road to fame and fortune. However, it does occasionally wear out it's champion if they are not up to the epic tasks it sets before them.
+
+Like all Holy Swords, Carsomyr will not reveal it's true power in the hands of any other than a paladin.
+
+STATISTICS
+
+Special Purpose:
+    Defeat Chaos, 5% chance per hit to paralyze Chaotic creatures for 1-4 rounds
+
+Equipped Abilities (Paladins): 
+    +50% Magic Resistance
+
+Combat Abilities (Paladins):
+    Dispels Magic at the wielder's level of experience with every strike
+    +10 damage bonus vs. Chaotic Evil creatures (instead of +5)
+
+THAC0: +5 bonus
+Damage:  1D10 +5
+Damage type:  slashing
+Weight:  7
+Speed Factor: 5
+Proficiency Type: Two handed sword 
+Type:  2-handed
+Requires: 14 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage
+ Thief
+ Monk
+ Evil characters"
+@35="Dispel Magic (Abjuration) 
+Level: 3
+Sphere: Protection 
+Range: Visual range of caster
+Duration: Special 
+Casting Time: 6 
+Area of Effect: 15-foot radius
+Saving Throw: Special
+
+When a priest casts this spell, it has a chance to negate magic it comes in contact with, as follows: First, it removes spells and spell-like effects (including those from magical device and innate abilities) on creatures or objects. Second, it neutralizes magical potions. Third, it can render golems inactive for one round if they fail a saving throw versus spell.
+
+Each effect or potion in the spell's area is checked to determine if it is dispelled. The chance to dispel depends on the difference in level between the intended recipient and the caster. The base chance is 50%, if the caster is of higher level than the individual under a dispellable effect, the chance increases by 3% per level above to maximum of 95%; conversely if the caster is of lower level, the chance is reduced by 3% per level below to a minimum of 5%. If the target has levels in more than one character class, the highest is checked."
+@36="Remove Magic (Abjuration) 
+Level: 3
+Range: Visual range of caster
+Duration: Special
+Casting Time: 3 
+Area of Effect: 15-foot radius
+Saving Throw: Special
+
+This is the combat version of dispel magic; it will only affect opponents. When a wizard casts this spell, it has a chance to negate magic it comes in contact with, as follows: First, it removes spells and spell-like effects (including those from magical device and innate abilities) on enemies in the area. Second, it neutralizes magical potions. Third, it can render attacking golems inactive for one round if they fail a saving throw versus spell.
+
+Each effect or potion in the spell's area is checked to determine if it is dispelled. The chance to dispel depends on the difference in level between the hostile creature and the caster. The base chance is 50%, if the caster is of higher level than an enemy under a dispellable effect, the chance increases by 3% per level above to maximum of 95%; conversely if the caster is of lower level, the chance is reduced by 3% per level below to a minimum of 5%. If the target has levels in more than one character class, the highest is checked."
+@37="Dispel Magic (Abjuration) 
+Level: 3
+Range: Visual range of caster
+Duration: Special 
+Casting Time: 3
+Area of Effect: 15-foot radius
+Saving Throw: Special
+
+When a wizard casts this spell, it has a chance to negate magic it comes in contact with, as follows: First, it removes spells and spell-like effects (including those from magical device and innate abilities) on creatures or objects. Second, it neutralizes magical potions. Third, it can render golems inactive for one round if they fail a saving throw versus spell.
+
+Each effect or potion in the spell's area is checked to determine if it is dispelled. The chance to dispel depends on the difference in level between the intended recipient and the caster. The base chance is 50%, if the caster is of higher level than the individual under a dispellable effect, the chance increases by 3% per level above to maximum of 95%; conversely if the caster is of lower level, the chance is reduced by 3% per level below to a minimum of 5%. If the target has levels in more than one character class, the highest is checked."
+@40="Spells of the Seventh Circle and above cannot be brought down by Dispel Magic"

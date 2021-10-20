@@ -1,0 +1,203 @@
+BACKUP ~polydisp/backup~
+
+AUTHOR ~Polytope~
+
+VERSION ~v1.00~
+
+LANGUAGE ~English~ ~english~ ~polydisp/english/setup.tra~
+
+BEGIN @10 DESIGNATED 10
+
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~mel01.cre~ @13
+
+COPY ~polydisp/dispel~ ~override~
+
+//Some "creatures" need to vanish when dispelled
+//We assume fixpack racial changes, but it doesn't hurt to fix their class also
+
+COPY_EXISTING ~sword01.cre~ ~override~
+	      ~sword02.cre~ ~override~
+	      ~sword03.cre~ ~override~
+	      ~sword68.cre~ ~override~
+WRITE_BYTE 0x0272 201
+WRITE_BYTE 0x0273 201
+
+COPY_EXISTING ~nishrusu.cre~ ~override~
+WRITE_BYTE 0x0272 136
+WRITE_BYTE 0x0273 174
+
+COPY_EXISTING ~sppr303.spl~ ~override~
+SAY 0x50 @35
+
+COPY_EXISTING ~spwi302.spl~ ~override~
+SAY 0x50 @36
+
+COPY_EXISTING ~spwi326.spl~ ~override~
+SAY 0x50 @37
+
+//Some abilities need their school changed
+
+COPY_EXISTING ~spcl907.spl~ ~override~
+	      ~spcl913.spl~ ~override~
+	      ~spcl914.spl~ ~override~
+	      ~spcl915.spl~ ~override~
+	      ~spcl916.spl~ ~override~
+	      ~spcl917.spl~ ~override~
+	      ~spcl918.spl~ ~override~
+	      ~spcl919.spl~ ~override~
+	      ~spcl928.spl~ ~override~
+	      ~spcl929.spl~ ~override~
+	      ~spcl930.spl~ ~override~
+WRITE_BYTE 0x25 0
+
+COPY_EXISTING ~spin152.spl~ ~override~
+	      ~spin153.spl~ ~override~
+	      ~spin154.spl~ ~override~
+	      ~spin155.spl~ ~override~
+	      ~spin156.spl~ ~override~
+	      ~spin157.spl~ ~override~
+	      ~spwi493.spl~ ~override~
+	      ~spwi494.spl~ ~override~
+	      ~spwi495.spl~ ~override~
+	      ~spwi496.spl~ ~override~
+	      ~spwi497.spl~ ~override~
+	      ~spwi498.spl~ ~override~
+	      ~spwi499.spl~ ~override~
+WRITE_BYTE 0x25 8
+
+COPY_EXISTING ~sppr701.spl~ ~override~
+	      ~spwi318.spl~ ~override~
+	      ~spwi420.spl~ ~override~
+	      ~spwi420d.spl~ ~override~
+	      ~spwi519.spl~ ~override~
+	      ~spwi522.spl~ ~override~
+	      ~spwi590.spl~ ~override~
+	      ~spwi591.spl~ ~override~
+	      ~spwi592.spl~ ~override~
+	      ~spwi593.spl~ ~override~
+	      ~spwi594.spl~ ~override~
+	      ~spwi595.spl~ ~override~
+	      ~spwi596.spl~ ~override~
+	      ~spwi597.spl~ ~override~
+	      ~spwi617.spl~ ~override~
+	      ~spwi618.spl~ ~override~
+	      ~spwi701.spl~ ~override~
+	      ~spwi710.spl~ ~override~
+	      ~spwi710d.spl~ ~override~
+	      ~spwi809.spl~ ~override~
+	      ~spwi809d.spl~ ~override~
+	      ~spwi902.spl~ ~override~
+	      ~spwi908.spl~ ~override~
+WRITE_BYTE 0x25 9 //Testing reveals that this does not effect specialist wizard selection of spells
+
+//As do potions
+
+COPY_EXISTING ~potn11.itm~ ~override~
+              ~potn18.itm~ ~override~
+              ~potn24.itm~ ~override~  
+ PATCH_IF (SOURCE_SIZE > 0x71) THEN BEGIN // protects against invalid files
+    READ_LONG  0x64 abil_off
+    READ_SHORT 0x68 abil_num
+      FOR (index = 0 ; index < abil_num ; ++index) BEGIN
+        READ_BYTE (abil_off + (index * 0x38)) type
+        PATCH_IF (type = 3) BEGIN //Magical header
+          WRITE_BYTE (abil_off + 0x17 + (index * 0x38)) 1 // Abjuration
+          WRITE_SHORT (abil_off + 0x19 + (index * 0x38)) 7 // Combat Protections
+        END
+      END
+    END 
+  BUT_ONLY
+
+COPY_EXISTING ~potn02.itm~ ~override~
+              ~potn21.itm~ ~override~
+              ~potn22.itm~ ~override~
+              ~potn31.itm~ ~override~
+              ~potn34.itm~ ~override~
+              ~potn35.itm~ ~override~
+              ~potn38.itm~ ~override~
+              ~potn45.itm~ ~override~  
+ PATCH_IF (SOURCE_SIZE > 0x71) THEN BEGIN // protects against invalid files
+    READ_LONG  0x64 abil_off
+    READ_SHORT 0x68 abil_num
+      FOR (index = 0 ; index < abil_num ; ++index) BEGIN
+        READ_BYTE (abil_off + (index * 0x38)) type
+        PATCH_IF (type = 3) BEGIN //Magical header
+          WRITE_BYTE (abil_off + 0x17 + (index * 0x38)) 1 // Abjuration
+          WRITE_SHORT (abil_off + 0x19 + (index * 0x38)) 2 // Specific Protections
+        END
+      END
+    END 
+  BUT_ONLY
+
+COPY_EXISTING ~potn03.itm~ ~override~
+              ~potn04.itm~ ~override~
+              ~potn05.itm~ ~override~
+              ~potn06.itm~ ~override~
+              ~potn07.itm~ ~override~
+              ~potn09.itm~ ~override~
+              ~potn12.itm~ ~override~
+              ~potn14.itm~ ~override~
+              ~potn41.itm~ ~override~
+              ~potn46.itm~ ~override~
+              ~potn56.itm~ ~override~
+              ~ption41.itm~ ~override~  
+ PATCH_IF (SOURCE_SIZE > 0x71) THEN BEGIN // protects against invalid files
+    READ_LONG  0x64 abil_off
+    READ_SHORT 0x68 abil_num
+      FOR (index = 0 ; index < abil_num ; ++index) BEGIN
+        READ_BYTE (abil_off + (index * 0x38)) type
+        PATCH_IF (type = 3) BEGIN //Magical header
+          WRITE_BYTE (abil_off + 0x17 + (index * 0x38)) 8 // Alteration
+          WRITE_SHORT (abil_off + 0x19 + (index * 0x38)) 13 // Non-combat... which is ironically the sectype for most combat buffs like Haste
+        END
+      END
+    END 
+  BUT_ONLY
+
+COPY_EXISTING ~potn10.itm~ ~override~
+  
+ PATCH_IF (SOURCE_SIZE > 0x71) THEN BEGIN // protects against invalid files
+    READ_LONG  0x64 abil_off
+    READ_SHORT 0x68 abil_num
+      FOR (index = 0 ; index < abil_num ; ++index) BEGIN
+        READ_BYTE (abil_off + (index * 0x38)) type
+        PATCH_IF (type = 3) BEGIN //Magical header
+          WRITE_BYTE (abil_off + 0x17 + (index * 0x38)) 5 // Illusion
+          WRITE_SHORT (abil_off + 0x19 + (index * 0x38)) 3 // Illusionary Protections
+        END
+      END
+    END 
+  BUT_ONLY
+
+BEGIN @20 DESIGNATED 20
+
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~a^dispe2.spl~ @21
+
+COPY ~polydisp/item~ ~override~
+
+COPY_EXISTING ~arow07.itm~ ~override~
+SAY 0x54 @33
+
+COPY_EXISTING ~sw2h10.itm~ ~override~
+SAY 0x54 @34
+
+COPY_EXISTING ~botsmith.dlg~ ~override~
+  DECOMPILE_DLG_TO_D
+    REPLACE_TEXTUALLY CASE_INSENSITIVE ~PartyHasItem("sw2h10")~ ~False()~
+  COMPILE_D_TO_DLG
+  BUT_ONLY_IF_IT_CHANGES
+
+BEGIN @40 DESIGNATED 40
+
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~a^dispe2.spl~ @21
+
+COPY ~polydisp/7th~ ~override~
+
+COPY_EXISTING ~sppr303.spl~ ~override~
+SAY 0x50 @30
+
+COPY_EXISTING ~spwi302.spl~ ~override~
+SAY 0x50 @31
+
+COPY_EXISTING ~spwi326.spl~ ~override~
+SAY 0x50 @32
