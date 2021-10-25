@@ -2,6 +2,9 @@
 @13="Throne of Bhaal is required"
 @20="Holy Avenger and arrows of dispelling as per PnP"
 @21="This option requires the main component"
+@22="Make Project Image a HLA (illusion rebalancing)"
+@23="Project Image is added to a casters' repertoire of 9th level spells"
+@24="Project Image is a once-per-day innate"
 @30="Dispel Magic (Abjuration) 
 Level: 3
 Sphere: Protection 
@@ -117,3 +120,26 @@ When a wizard casts this spell, it has a chance to negate magic it comes in cont
 
 Each effect or potion in the spell's area is checked to determine if it is dispelled. The chance to dispel depends on the difference in level between the intended recipient and the caster. The base chance is 50%, if the caster is of higher level than the individual under a dispellable effect, the chance increases by 3% per level above to maximum of 95%; conversely if the caster is of lower level, the chance is reduced by 3% per level below to a minimum of 5%. If the target has levels in more than one character class, the highest is checked."
 @40="Spells of the Seventh Circle and above cannot be brought down by Dispel Magic"
+@41="Project Image (Illusion)
+Level: 10
+Range: Visual range of caster
+Duration: 2 turns
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: None
+
+This spell creates a quasi-real duplicate of the caster, whilst making himself or herself improved invisible for the duration, he or she cannot act while controlling the image, which is projected to any spot within spell range and receives the full complement of spells its creator had memorized at time of casting, it cannot attack.
+
+The image can be removed by means of a successful dispel magic spell or other means of revealing illusions; the caster can also end it at any time."
+@42="Malec-Keth's Flame Fist"
+@43="Malec-Keth's Flame Fist (Evocation)
+Level: 7
+Range: Touch
+Duration: 1 round/2 levels
+Casting Time: 1
+Area of Effect: Touched creatures
+Saving Throw: Special
+
+When this spell is completed, the caster's hand bursts into light and is surrounded by an aura of flame. The caster suffers no damage from this effect.
+
+If the wizard strikes an opponent in melee, the subject must save vs spell. If successful, the flame remains on the caster's hand and the touched creature suffers 2d4 fire damage. If the save is failed, the flame leaves the caster's hand to surround the victim's body in searing fire. The superheated aura burns for 1 round, inflicting 1d4 damage per level of the caster. Only one target per round can be so immolated."

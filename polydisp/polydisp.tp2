@@ -169,6 +169,54 @@ COPY_EXISTING ~potn10.itm~ ~override~
     END 
   BUT_ONLY
 
+//Attempt compatibility with Spell Revisions take on SI:Abj
+
+ACTION_IF  FILE_EXISTS_IN_GAME ~k1#scre.spl~ THEN BEGIN      
+  COPY_EXISTING ~sppr303.spl~ ~override~
+	      ~spwi302.spl~ ~override~
+	      ~spwi326.spl~ ~override~
+	      ~spcl231.spl~ ~override~
+    LPF ADD_SPELL_EFFECT INT_VAR
+	opcode	= 146
+	target = 2
+	power = 0    
+	timing	= 3
+	duration = 1
+	parameter1 = 0
+	parameter2 = 1
+	STR_VAR
+	resource = ~spwi513c~
+	END
+
+  COPY_EXISTING ~k1#scre.spl~ ~override~
+    LPF ADD_SPELL_EFFECT
+	INT_VAR
+	opcode = 206
+	target = 2
+	power = 5
+	timing = 0
+	duration = 300
+	resist_dispel = 2
+	STR_VAR
+	resource = ~a^dispe2~
+	END
+    BUT_ONLY
+  END
+
+//There are multiple redundant power checks with the Breach
+//shell spells, resulting in undesirable interaction with
+//Spell Deflection for instance
+
+ACTION_IF  FILE_EXISTS_IN_GAME ~spwi513c.spl~ THEN BEGIN     
+  COPY_EXISTING ~spwi513c.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+	INT_VAR
+	opcode = 221
+	power = 0
+	END
+    BUT_ONLY
+  END
+
 BEGIN @20 DESIGNATED 20
 
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~a^dispe2.spl~ @21
@@ -201,3 +249,87 @@ SAY 0x50 @31
 
 COPY_EXISTING ~spwi326.spl~ ~override~
 SAY 0x50 @32
+
+BEGIN @23 DESIGNATED 23
+SUBCOMPONENT @22
+
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~a^dispe2.spl~ @21
+
+COPY ~polydisp/projectimage/a^projec.spl~ ~override~
+COPY ~polydisp/malec~ ~override~
+
+COPY_EXISTING ~a^projec.spl~ ~override~
+SAY 0x50 @41
+
+COPY_EXISTING ~spwi703.spl~ ~override~
+SAY 0x8 @42
+SAY 0xc @42
+SAY 0x50 @43
+
+COPY_EXISTING ~scrl8f.itm~ ~override~
+SAY 0x8 @42
+SAY 0xc @42
+SAY 0x50 @43
+
+COPY_EXISTING ~spwi607.spl~ ~override~
+  LPF ALTER_SPELL_EFFECT
+    INT_VAR
+    opcode = 236
+    duration = 24
+    END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a^projec.spl~ THEN BEGIN
+COPY_EXISTING ~LUMA0.2DA~ ~override~
+              ~LUMA1.2DA~ ~override~
+              ~LUMA2.2DA~ ~override~
+              ~LUMA4.2DA~ ~override~
+              ~LUMA5.2DA~ ~override~
+              ~LUMA6.2DA~ ~override~
+              ~LUMA7.2DA~ ~override~ 
+              ~LUMA8.2DA~ ~override~                                 
+REPLACE_TEXTUALLY ~AP_SPCL930~ ~GA_A^PROJEC~          
+    SET_2DA_ENTRY 3 7 7 ~*~                                // No prerequisite
+    PRETTY_PRINT_2DA
+END           
+
+BEGIN @24 DESIGNATED 24
+SUBCOMPONENT @22
+
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~a^dispe2.spl~ @21
+
+COPY ~polydisp/projectimage/a^proje2.spl~ ~override~
+COPY ~polydisp/malec~ ~override~
+
+COPY_EXISTING ~a^proje2.spl~ ~override~
+SAY 0x50 @41
+
+COPY_EXISTING ~spwi703.spl~ ~override~
+SAY 0x8 @42
+SAY 0xc @42
+SAY 0x50 @43
+
+COPY_EXISTING ~scrl8f.itm~ ~override~
+SAY 0x8 @42
+SAY 0xc @42
+SAY 0x50 @43
+
+COPY_EXISTING ~spwi607.spl~ ~override~
+  LPF ALTER_SPELL_EFFECT
+    INT_VAR
+    opcode = 236
+    duration = 24
+    END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a^proje2.spl~ THEN BEGIN
+COPY_EXISTING ~LUMA0.2DA~ ~override~
+              ~LUMA1.2DA~ ~override~
+              ~LUMA2.2DA~ ~override~
+              ~LUMA4.2DA~ ~override~
+              ~LUMA5.2DA~ ~override~
+              ~LUMA6.2DA~ ~override~
+              ~LUMA7.2DA~ ~override~ 
+              ~LUMA8.2DA~ ~override~                                 
+REPLACE_TEXTUALLY ~AP_SPCL930~ ~GA_A^PROJE2~          
+    SET_2DA_ENTRY 3 7 7 ~*~                                // No prerequisite
+    PRETTY_PRINT_2DA
+END             
